@@ -3,127 +3,232 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conheça o LD - Trajetória</title>
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <title>Conheça o LD | Storytelling</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #0d1117;
-            --accent-color: #00f2ff;
-            --text-color: #e6edf3;
-            --secondary-text: #8b949e;
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --accent: #00f2ff; /* Ciano Neon */
+            --text: #e6edf3;
+            --dim-text: #8b949e;
+            --shadow: 0 8px 32px rgba(0, 242, 255, 0.15);
         }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            background-color: var(--bg);
+            color: var(--text);
             font-family: 'Ubuntu', sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
             line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        .main-container {
-            max-width: 650px;
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
             padding: 40px 20px;
         }
 
-        .profile-header {
+        /* --- HERO SECTION --- */
+        .hero {
             text-align: center;
-            margin-bottom: 40px;
+            padding: 60px 0;
+            background: radial-gradient(circle at center, rgba(0, 242, 255, 0.05) 0%, transparent 70%);
         }
 
         .avatar {
-            width: 180px;
-            height: 180px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 3px solid var(--accent-color);
-            box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+            border: 3px solid var(--accent);
+            box-shadow: var(--shadow);
             margin-bottom: 20px;
         }
 
-        h1 {
-            color: var(--accent-color);
-            font-size: 2rem;
-            margin: 10px 0;
+        .hero h1 {
+            font-size: 2.5rem;
+            letter-spacing: -1px;
         }
+
+        .hero h1 span { color: var(--accent); }
 
         .tagline {
-            font-style: italic;
-            color: var(--secondary-text);
-            margin-bottom: 30px;
-        }
-
-        .content-section {
-            background: rgba(255, 255, 255, 0.03);
-            padding: 30px;
-            border-radius: 15px;
-            border-left: 4px solid var(--accent-color);
-        }
-
-        p {
-            margin-bottom: 20px;
+            color: var(--dim-text);
             font-size: 1.1rem;
-            text-align: justify;
+            max-width: 500px;
+            margin: 10px auto;
         }
 
-        .highlight {
-            color: var(--accent-color);
-            font-weight: bold;
+        /* --- TIMELINE --- */
+        .timeline {
+            position: relative;
+            margin: 50px 0;
         }
 
-        .btn-back {
-            display: inline-block;
-            margin-top: 30px;
-            padding: 12px 25px;
-            background: transparent;
-            border: 1px solid var(--accent-color);
-            color: var(--accent-color);
-            text-decoration: none;
-            border-radius: 8px;
+        /* Linha central da timeline (apenas desktop) */
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, var(--accent), transparent);
+            transform: translateX(-50%);
+            display: none;
+        }
+
+        .step {
+            position: relative;
+            margin-bottom: 40px;
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
             transition: 0.3s;
         }
 
-        .btn-back:hover {
-            background: var(--accent-color);
-            color: var(--bg-color);
+        .step:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+        }
+
+        .step h3 {
+            color: var(--accent);
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .step p {
+            font-size: 1rem;
+            color: var(--text);
+            text-align: left;
+        }
+
+        /* Card de Insight (Destaque) */
+        .insight-card {
+            background: linear-gradient(135deg, rgba(0, 242, 255, 0.1), transparent);
+            border: 2px solid var(--accent);
+            padding: 30px;
+            border-radius: 16px;
+            margin: 60px 0;
+            text-align: center;
+        }
+
+        .insight-card h2 { margin-bottom: 15px; font-size: 1.4rem; }
+
+        /* Botão Final */
+        .cta-area {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--bg);
+            padding: 15px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            transition: 0.3s;
+            box-shadow: 0 0 20px rgba(0, 242, 255, 0.4);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px var(--accent);
+        }
+
+        /* --- RESPONSIVIDADE --- */
+        @media (min-width: 768px) {
+            .timeline::before { display: block; }
+            
+            .step {
+                width: 45%;
+                margin-bottom: 80px;
+            }
+
+            .step:nth-child(even) { margin-left: auto; }
+            .step:nth-child(odd) { margin-right: auto; }
+
+            /* Marcador na linha central */
+            .step::after {
+                content: '';
+                position: absolute;
+                top: 30px;
+                width: 15px;
+                height: 15px;
+                background: var(--accent);
+                border-radius: 50%;
+                box-shadow: 0 0 10px var(--accent);
+            }
+
+            .step:nth-child(odd)::after { right: -12.5%; }
+            .step:nth-child(even)::after { left: -12.5%; }
         }
 
         footer {
             text-align: center;
-            margin-top: 50px;
-            color: var(--secondary-text);
-            font-size: 0.9rem;
+            padding: 40px;
+            color: var(--dim-text);
+            font-size: 0.8rem;
         }
     </style>
 </head>
 <body>
 
-    <div class="main-container">
-        <div class="profile-header">
-            <img src="avatar-leonardo.png" alt="Leonardo Dev" class="avatar">
-            <h1>Quem é o LD?</h1>
-            <p class="tagline">Professor, Vendedor e agora seu Estrategista Digital.</p>
-        </div>
+    <div class="container">
+        <section class="hero">
+            <img src="avatar.jpg" alt="Leonardo Dev" class="avatar">
+            <h1>O Código da <span>Resiliência</span></h1>
+            <p class="tagline">Como 20 anos de ensino e o "chão da rua" criaram um especialista em páginas de alta conversão improvável.</p>
+        </section>
 
-        <div class="content-section">
-            <p>Um fleumático que se desafia todos os dias e busca melhorar sempre. Casado com a Michelle; fui professor de informática durante 20 anos até que recebi um convite profissional que mudou minha vida <span class="highlight">LITERALMENTE!</span></p>
+        <div class="timeline">
             
-            <p>Mudei de cidade para ser gestor de uma empresa, o que acabou não dando certo. Mas eu não quis voltar atrás, mantive firme na cidade nova junto com a minha esposa, mesmo sem conhecermos ninguém.</p>
+            <div class="step">
+                <h3>👨‍🏫 A Base</h3>
+                <p>20 anos em sala de aula como professor de informática. Ali aprendi a simplificar o complexo e a ter paciência para estruturar processos.</p>
+            </div>
 
-            <p>Vendemos Natura em estacionamento de mercado, abrimos nossa loja em agosto de 2019 e, em 2020, a pandemia nos desafiou novamente. Fui trabalhar de Uber para manter as contas enquanto cuidávamos da loja. Ali entendi que o Uber pagava as contas, mas não realizava sonhos.</p>
+            <div class="step">
+                <h3>🚗 O Salto</h3>
+                <p>Um convite mudou tudo. Mudei de cidade para ser gestor. O plano não deu certo, mas recuar nunca foi uma opção. Fiquei na cidade nova com a Michelle, sem conhecer ninguém.</p>
+            </div>
 
-            <p>Decidi parar de esperar e <span class="highlight">fui atrás dos clientes</span>. Bati em portas de órgãos públicos e escolas. Essa experiência com vendas me deu a peça que faltava no meu quebra-cabeça profissional.</p>
+            <div class="step">
+                <h3>🏪 O Asfalto</h3>
+                <p>Vendi Natura em estacionamento de mercado. Abri loja em 2019 e a pandemia veio em 2020. Fui para o Uber para segurar as pontas. Uber paga as contas, mas não constrói sonhos.</p>
+            </div>
 
-            <p>Em março de 2026, retomei meu antigo desejo: <span class="highlight">trabalhar com Webdesign</span>. Hoje entendo que não basta fazer sites, é preciso vender o que o site representa. Uso minha bagagem de 20 anos de ensino e minha experiência prática em vendas para criar soluções que realmente funcionam.</p>
+            <div class="step">
+                <h3>🔥 A Virada</h3>
+                <p>Parei de esperar o cliente. Bati em portas, escolas e órgãos públicos. Ali eu perdi o medo de vender e entendi o que o mercado realmente precisa.</p>
+            </div>
+
         </div>
 
-        <div style="text-align: center;">
-            <a href="index.html" class="btn-back">← Voltar para os links</a>
+        <div class="insight-card">
+            <h2>💡 O Insight de Mestre</h2>
+            <p>"Na juventude eu achava que bastava fazer sites. Hoje eu sei que sites não valem nada se não servirem para <strong>vender</strong>. Eu uni o código com o comercial."</p>
+        </div>
+
+        <div class="step" style="width: 100%; max-width: 600px; margin: 0 auto;">
+            <h3>🚀 Março de 2026</h3>
+            <p>Retomo meu sonho no Webdesign, mas agora com uma bagagem que nenhum curso de código ensina: a vivência real do pequeno empresário brasileiro.</p>
+        </div>
+
+        <div class="cta-area">
+            <a href="index.html" class="btn">Conheça meus Projetos</a>
         </div>
 
         <footer>
-            @leonardodevoficial | Campo Grande, MS
+            © 2026 Leonardo Dev | @leonardodevoficial
         </footer>
     </div>
 
