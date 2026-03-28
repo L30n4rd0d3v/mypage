@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sucesso! | Leonardo Dev</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --accent: #00f2ff;
+            --text: #e6edf3;
+            --dim-text: #8b949e;
+            --success: #2ea043; /* Verde para feedback de sucesso */
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Ubuntu', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .success-container {
+            max-width: 500px;
+            background: var(--card-bg);
+            padding: 50px 30px;
+            border-radius: 20px;
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            box-shadow: 0 10px 40px rgba(0, 242, 255, 0.1);
+        }
+
+        /* Ícone de Sucesso Animado */
+        .icon-box {
+            width: 80px;
+            height: 80px;
+            background: rgba(46, 160, 67, 0.15);
+            border: 2px solid var(--success);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 2.5rem;
+            color: var(--success);
+            box-shadow: 0 0 20px rgba(46, 160, 67, 0.3);
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text);
+            margin-bottom: 25px;
+            line-height: 1.6;
+        }
+
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        /* Botão WhatsApp */
+        .btn-whatsapp {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #25d366; /* Cor oficial WhatsApp */
+            color: #fff;
+            padding: 18px 30px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.3);
+            margin-top: 10px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(37, 211, 102, 0.5);
+        }
+
+        .avatar-footer {
+            margin-top: 40px;
+            opacity: 0.8;
+        }
+
+        .avatar-small {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            border: 2px solid var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .back-home {
+            display: block;
+            margin-top: 30px;
+            color: var(--dim-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: 0.3s;
+        }
+
+        .back-home:hover { color: var(--accent); }
+
+    </style>
+</head>
+<body>
+
+    <div class="success-container">
+        <div class="icon-box">✓</div>
+        
+        <h1>Recebido com Sucesso!</h1>
+        
+        <p>Obrigado pelo contato. Minha equipe e eu já estamos analisando sua proposta.</p>
+        
+        <p>Em breve, entraremos em contato para agendar uma <span class="highlight">vídeo chamada</span> e alinhar os objetivos estratégicos do seu projeto.</p>
+
+        <p style="font-size: 0.95rem; color: var(--dim-text);">Se tiver pressa para começar, você pode falar comigo agora mesmo pelo WhatsApp:</p>
+
+        <a href="https://wa.me/5567991531560?text=Olá%20Leonardo,%20acabei%20de%20enviar%20o%20formulário%20do%20meu%20projeto!" class="btn-whatsapp" target="_blank">
+            Chamar no WhatsApp
+        </a>
+
+        <div class="avatar-footer">
+            <img src="avatar.jpg" alt="Leonardo Dev" class="avatar-small">
+            <p style="font-size: 0.8rem; color: var(--dim-text);">Leonardo Dev - Estrategista Digital</p>
+        </div>
+
+        <a href="index.html" class="back-home">← Voltar para a página inicial</a>
+    </div>
+
+</body>
+</html>
